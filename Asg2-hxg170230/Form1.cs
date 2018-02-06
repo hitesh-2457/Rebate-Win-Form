@@ -25,6 +25,7 @@ namespace Asg2_hxg170230
             ModifyBtn.Enabled = false;
             DeleteBtn.Enabled = false;
             DataListView.Focus();
+            updateStatusBar("");
         }
 
         private void BindObject(Model model)
@@ -66,7 +67,7 @@ namespace Asg2_hxg170230
             model.DateReceived = DateReceivedPicker.Value;
             model.ProofAttached = ProofComboBx.Text.ToString();
             model.NoBackSpace = bsCount;
-            model.TimeFirstChar = FirstNameTxtBx_FirstKeyPress??model.TimeFirstChar;
+            model.TimeFirstChar = FirstNameTxtBx_FirstKeyPress ?? model.TimeFirstChar;
             model.TimeSaved = SaveClick;
 
             entry = model;
@@ -100,18 +101,25 @@ namespace Asg2_hxg170230
 
             if (!validateForm())
                 return;
-            
+
+            if (!EditMode && CheckDuplicate())
+            {
+                AddBtn.Text = "Update";
+                return;
+            }
+
             if (EditMode)
             {
                 var selectedItem = DataListView.Items[DataListView.SelectedIndices[0]];
                 Model updatedEntry = selectedItem.Tag as Model;
                 FetchData(out updatedEntry);
-                
+
                 selectedItem.Tag = updatedEntry;
                 selectedItem.SubItems[0].Text = updatedEntry.FirstName;
                 selectedItem.SubItems[1].Text = updatedEntry.LastName;
                 selectedItem.SubItems[2].Text = updatedEntry.PhoneNumber;
                 DataListView.Refresh();
+                updateStatusBar("Updated Entry with First Name: " + updatedEntry.FirstName);
                 BindObject(new Model());
             }
             else
@@ -119,6 +127,7 @@ namespace Asg2_hxg170230
                 Model newEntry = new Model();
                 FetchData(out newEntry);
                 AddToListView(newEntry);
+                updateStatusBar("Added a new Entry with First Name: " + newEntry.FirstName);
                 BindObject(new Model());
             }
 
@@ -173,13 +182,14 @@ namespace Asg2_hxg170230
         private void ClearBtn_Click(object sender, EventArgs e)
         {
             BindObject(new Model());
-            DataListView.Focus();
-            errorProvider = new ErrorProvider(splitContainer.GetContainerControl() as ContainerControl);
+            errorProvider.Clear();
+            updateStatusBar("");
         }
 
         private void ModifyBtn_Click(object sender, EventArgs e)
         {
             BindSelectedData();
+            updateStatusBar("Updating Entry with First Name: " + FirstNameTxtBx.Text);
         }
 
         private void ListData_SelectedIndexChanged(object sender, EventArgs e)
@@ -198,8 +208,10 @@ namespace Asg2_hxg170230
 
         private void DeleteBtn_Click(object sender, EventArgs e)
         {
+            var firstName = (DataListView.SelectedItems[0].Tag as Model).FirstName;
             DataListView.Items.RemoveAt(DataListView.SelectedIndices[0]);
             DataListView.Refresh();
+            updateStatusBar("Deleted the entry with First Name: " + firstName);
         }
 
         private void TxtBx_Validating(object sender, CancelEventArgs e)
@@ -274,6 +286,7 @@ namespace Asg2_hxg170230
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
+            updateStatusBar("Updating the Data file, Please Wait...");
             AutoValidate = System.Windows.Forms.AutoValidate.Disable;
             var dataList = new List<Model>();
             ListView.ListViewItemCollection items = DataListView.Items;
@@ -283,12 +296,14 @@ namespace Asg2_hxg170230
             }
             var dataParser = new DataParser();
             dataParser.writeFile(dataList);
+            updateStatusBar("Updated the Data file, Exiting Application.");
             Application.Exit();
         }
 
         private void DataListView_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             BindSelectedData();
+            updateStatusBar("Updating Entry with First Name: " + FirstNameTxtBx.Text);
         }
 
         private void BindSelectedData()
@@ -304,6 +319,41 @@ namespace Asg2_hxg170230
         private void FirstNameTxtBx_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (FirstNameTxtBx_FirstKeyPress == null) FirstNameTxtBx_FirstKeyPress = DateTime.Now;
+        }
+
+        private Boolean CheckDuplicate()
+        {
+            var firstName = FirstNameTxtBx.Text;
+            var lastName = LastNameTxtBx.Text;
+            var phoneNumber = PhoneNumberTxtBx.Text;
+
+            foreach (ListViewItem item in DataListView.Items)
+            {
+                var dataObj = item.Tag as Model;
+                if (dataObj.FirstName.Equals(firstName)
+                    && dataObj.LastName.Equals(lastName)
+                    && dataObj.PhoneNumber.Equals(phoneNumber))
+                {
+                    updateStatusBar("Found a entry with same details. " +
+                        "Updating Entry with First Name: " + firstName +
+                        " Click Update to continue update.");
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        private void CheckNumberKeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != '\b')
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void updateStatusBar(String message = "")
+        {
+            statusLabel.Text = message;
         }
     }
 }

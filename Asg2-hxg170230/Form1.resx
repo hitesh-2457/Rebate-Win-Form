@@ -805,7 +805,7 @@
     <value>F</value>
   </data>
   <data name="GenderComboBx.Location" type="System.Drawing.Point, System.Drawing">
-    <value>26, 100</value>
+    <value>176, 100</value>
   </data>
   <data name="GenderComboBx.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 4, 4, 4</value>
@@ -820,7 +820,7 @@
     <value>52, 24</value>
   </data>
   <data name="GenderComboBx.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="&gt;&gt;GenderComboBx.Name" xml:space="preserve">
     <value>GenderComboBx</value>
@@ -862,7 +862,7 @@
     <value>1</value>
   </data>
   <data name="PhoneNumberTxtBx.Location" type="System.Drawing.Point, System.Drawing">
-    <value>115, 100</value>
+    <value>25, 100</value>
   </data>
   <data name="PhoneNumberTxtBx.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 4, 4, 4</value>
@@ -874,7 +874,7 @@
     <value>114, 22</value>
   </data>
   <data name="PhoneNumberTxtBx.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
+    <value>3</value>
   </data>
   <data name="&gt;&gt;PhoneNumberTxtBx.Name" xml:space="preserve">
     <value>PhoneNumberTxtBx</value>
@@ -973,7 +973,7 @@
     <value>True</value>
   </data>
   <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
-    <value>21, 81</value>
+    <value>171, 81</value>
   </data>
   <data name="label7.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 0, 4, 0</value>
@@ -1093,7 +1093,7 @@
     <value>True</value>
   </data>
   <data name="label10.Location" type="System.Drawing.Point, System.Drawing">
-    <value>113, 81</value>
+    <value>23, 81</value>
   </data>
   <data name="label10.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 0, 4, 0</value>
@@ -1221,10 +1221,10 @@
   <metadata name="StatusBar.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <data name="toolStripStatusLabel1.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="statusLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>151, 20</value>
   </data>
-  <data name="toolStripStatusLabel1.Text" xml:space="preserve">
+  <data name="statusLabel.Text" xml:space="preserve">
     <value>toolStripStatusLabel1</value>
   </data>
   <data name="StatusBar.Location" type="System.Drawing.Point, System.Drawing">
@@ -1302,10 +1302,10 @@
   <data name="&gt;&gt;colHeader3.Type" xml:space="preserve">
     <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;toolStripStatusLabel1.Name" xml:space="preserve">
-    <value>toolStripStatusLabel1</value>
+  <data name="&gt;&gt;statusLabel.Name" xml:space="preserve">
+    <value>statusLabel</value>
   </data>
-  <data name="&gt;&gt;toolStripStatusLabel1.Type" xml:space="preserve">
+  <data name="&gt;&gt;statusLabel.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;errorProvider.Name" xml:space="preserve">

@@ -70,7 +70,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.StatusBar = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.statusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
@@ -223,6 +223,7 @@
             // 
             resources.ApplyResources(this.ZipCodeTxtBx, "ZipCodeTxtBx");
             this.ZipCodeTxtBx.Name = "ZipCodeTxtBx";
+            this.ZipCodeTxtBx.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckNumberKeyPress);
             this.ZipCodeTxtBx.Validating += new System.ComponentModel.CancelEventHandler(this.TxtBx_Validating);
             this.ZipCodeTxtBx.Validated += new System.EventHandler(this.TxtBx_Validated);
             // 
@@ -325,6 +326,7 @@
             // 
             resources.ApplyResources(this.PhoneNumberTxtBx, "PhoneNumberTxtBx");
             this.PhoneNumberTxtBx.Name = "PhoneNumberTxtBx";
+            this.PhoneNumberTxtBx.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckNumberKeyPress);
             this.PhoneNumberTxtBx.Validating += new System.ComponentModel.CancelEventHandler(this.TxtBx_Validating);
             this.PhoneNumberTxtBx.Validated += new System.EventHandler(this.TxtBx_Validated);
             // 
@@ -382,15 +384,15 @@
             // 
             this.StatusBar.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.StatusBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel1});
+            this.statusLabel});
             resources.ApplyResources(this.StatusBar, "StatusBar");
             this.StatusBar.Name = "StatusBar";
             this.StatusBar.SizingGrip = false;
             // 
-            // toolStripStatusLabel1
+            // statusLabel
             // 
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            resources.ApplyResources(this.toolStripStatusLabel1, "toolStripStatusLabel1");
+            this.statusLabel.Name = "statusLabel";
+            resources.ApplyResources(this.statusLabel, "statusLabel");
             // 
             // errorProvider
             // 
@@ -473,7 +475,7 @@
         private System.Windows.Forms.ErrorProvider errorProvider;
         private System.Windows.Forms.Button ClearBtn;
         private System.Windows.Forms.Button AddBtn;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ToolStripStatusLabel statusLabel;
     }
 }
 

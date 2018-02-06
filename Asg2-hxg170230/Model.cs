@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -180,6 +181,18 @@ namespace Asg2_hxg170230
             int val = 0;
             Int32.TryParse(data[15] ?? "", out val);
             NoBackSpace = val;
+        }
+
+        override
+        public String ToString()
+        {
+            PropertyInfo[] properties = this.GetType().GetProperties();
+            List<object> values = new List<object>();
+            foreach (var p in properties)
+            {
+                values.Add(p.GetValue(this));
+            }
+            return String.Join("\t", values);
         }
     }
 }

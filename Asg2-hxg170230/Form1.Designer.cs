@@ -28,23 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.splitContainer = new System.Windows.Forms.SplitContainer();
             this.ModifyBtn = new System.Windows.Forms.Button();
             this.DeleteBtn = new System.Windows.Forms.Button();
-            this.ListData = new System.Windows.Forms.ListView();
+            this.DataListView = new System.Windows.Forms.ListView();
             this.colHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.panel1 = new System.Windows.Forms.Panel();
             this.ClearBtn = new System.Windows.Forms.Button();
-            this.AddBtn = new System.Windows.Forms.Button();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.rebateDetailGrp = new System.Windows.Forms.GroupBox();
             this.ProofComboBx = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.DateReceivedPicker = new System.Windows.Forms.DateTimePicker();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.AddBtn = new System.Windows.Forms.Button();
+            this.addrGrp = new System.Windows.Forms.GroupBox();
             this.ZipCodeTxtBx = new System.Windows.Forms.TextBox();
             this.textBox10 = new System.Windows.Forms.TextBox();
             this.StateTxtBx = new System.Windows.Forms.TextBox();
@@ -56,7 +56,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.detailsGrp = new System.Windows.Forms.GroupBox();
             this.GenderComboBx = new System.Windows.Forms.ComboBox();
             this.EMailTxtBx = new System.Windows.Forms.TextBox();
             this.PhoneNumberTxtBx = new System.Windows.Forms.TextBox();
@@ -71,60 +71,69 @@
             this.label1 = new System.Windows.Forms.Label();
             this.StatusBar = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
-            this.splitContainer1.Panel1.SuspendLayout();
-            this.splitContainer1.Panel2.SuspendLayout();
-            this.splitContainer1.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
+            this.splitContainer.Panel1.SuspendLayout();
+            this.splitContainer.Panel2.SuspendLayout();
+            this.splitContainer.SuspendLayout();
+            this.rebateDetailGrp.SuspendLayout();
+            this.addrGrp.SuspendLayout();
+            this.detailsGrp.SuspendLayout();
             this.StatusBar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
-            // splitContainer1
+            // splitContainer
             // 
-            resources.ApplyResources(this.splitContainer1, "splitContainer1");
-            this.splitContainer1.Name = "splitContainer1";
+            resources.ApplyResources(this.splitContainer, "splitContainer");
+            this.errorProvider.SetError(this.splitContainer, resources.GetString("splitContainer.Error"));
+            this.splitContainer.Name = "splitContainer";
             // 
-            // splitContainer1.Panel1
+            // splitContainer.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.ModifyBtn);
-            this.splitContainer1.Panel1.Controls.Add(this.DeleteBtn);
-            this.splitContainer1.Panel1.Controls.Add(this.ListData);
-            resources.ApplyResources(this.splitContainer1.Panel1, "splitContainer1.Panel1");
+            this.splitContainer.Panel1.Controls.Add(this.ModifyBtn);
+            this.splitContainer.Panel1.Controls.Add(this.DeleteBtn);
+            this.splitContainer.Panel1.Controls.Add(this.DataListView);
+            resources.ApplyResources(this.splitContainer.Panel1, "splitContainer.Panel1");
             // 
-            // splitContainer1.Panel2
+            // splitContainer.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.panel1);
-            this.splitContainer1.Panel2.Controls.Add(this.groupBox3);
-            this.splitContainer1.Panel2.Controls.Add(this.groupBox2);
-            this.splitContainer1.Panel2.Controls.Add(this.groupBox1);
-            resources.ApplyResources(this.splitContainer1.Panel2, "splitContainer1.Panel2");
-            this.splitContainer1.TabStop = false;
+            this.splitContainer.Panel2.Controls.Add(this.ClearBtn);
+            this.splitContainer.Panel2.Controls.Add(this.rebateDetailGrp);
+            this.splitContainer.Panel2.Controls.Add(this.AddBtn);
+            this.splitContainer.Panel2.Controls.Add(this.addrGrp);
+            this.splitContainer.Panel2.Controls.Add(this.detailsGrp);
+            resources.ApplyResources(this.splitContainer.Panel2, "splitContainer.Panel2");
+            this.splitContainer.TabStop = false;
             // 
             // ModifyBtn
             // 
             resources.ApplyResources(this.ModifyBtn, "ModifyBtn");
             this.ModifyBtn.Name = "ModifyBtn";
             this.ModifyBtn.UseVisualStyleBackColor = true;
+            this.ModifyBtn.Click += new System.EventHandler(this.ModifyBtn_Click);
             // 
             // DeleteBtn
             // 
             resources.ApplyResources(this.DeleteBtn, "DeleteBtn");
             this.DeleteBtn.Name = "DeleteBtn";
             this.DeleteBtn.UseVisualStyleBackColor = true;
+            this.DeleteBtn.Click += new System.EventHandler(this.DeleteBtn_Click);
             // 
-            // ListData
+            // DataListView
             // 
-            this.ListData.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.DataListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.colHeader1,
             this.colHeader2,
             this.colHeader3});
-            resources.ApplyResources(this.ListData, "ListData");
-            this.ListData.Name = "ListData";
-            this.ListData.UseCompatibleStateImageBehavior = false;
-            this.ListData.View = System.Windows.Forms.View.Details;
+            this.DataListView.FullRowSelect = true;
+            resources.ApplyResources(this.DataListView, "DataListView");
+            this.DataListView.MultiSelect = false;
+            this.DataListView.Name = "DataListView";
+            this.DataListView.UseCompatibleStateImageBehavior = false;
+            this.DataListView.View = System.Windows.Forms.View.Details;
+            this.DataListView.SelectedIndexChanged += new System.EventHandler(this.ListData_SelectedIndexChanged);
+            this.DataListView.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.DataListView_MouseDoubleClick);
             // 
             // colHeader1
             // 
@@ -138,44 +147,36 @@
             // 
             resources.ApplyResources(this.colHeader3, "colHeader3");
             // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.ClearBtn);
-            this.panel1.Controls.Add(this.AddBtn);
-            resources.ApplyResources(this.panel1, "panel1");
-            this.panel1.Name = "panel1";
-            // 
             // ClearBtn
             // 
             resources.ApplyResources(this.ClearBtn, "ClearBtn");
             this.ClearBtn.Name = "ClearBtn";
             this.ClearBtn.UseVisualStyleBackColor = true;
+            this.ClearBtn.Click += new System.EventHandler(this.ClearBtn_Click);
             // 
-            // AddBtn
+            // rebateDetailGrp
             // 
-            resources.ApplyResources(this.AddBtn, "AddBtn");
-            this.AddBtn.Name = "AddBtn";
-            this.AddBtn.UseVisualStyleBackColor = true;
-            this.AddBtn.Click += new System.EventHandler(this.AddBtn_Click);
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.ProofComboBx);
-            this.groupBox3.Controls.Add(this.label13);
-            this.groupBox3.Controls.Add(this.label12);
-            this.groupBox3.Controls.Add(this.DateReceivedPicker);
-            resources.ApplyResources(this.groupBox3, "groupBox3");
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.TabStop = false;
+            this.rebateDetailGrp.Controls.Add(this.ProofComboBx);
+            this.rebateDetailGrp.Controls.Add(this.label13);
+            this.rebateDetailGrp.Controls.Add(this.label12);
+            this.rebateDetailGrp.Controls.Add(this.DateReceivedPicker);
+            resources.ApplyResources(this.rebateDetailGrp, "rebateDetailGrp");
+            this.rebateDetailGrp.Name = "rebateDetailGrp";
+            this.rebateDetailGrp.TabStop = false;
             // 
             // ProofComboBx
             // 
+            this.ProofComboBx.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.ProofComboBx.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.ProofComboBx.FormattingEnabled = true;
             this.ProofComboBx.Items.AddRange(new object[] {
             resources.GetString("ProofComboBx.Items"),
             resources.GetString("ProofComboBx.Items1")});
             resources.ApplyResources(this.ProofComboBx, "ProofComboBx");
             this.ProofComboBx.Name = "ProofComboBx";
+            this.ProofComboBx.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ProofComboBx_KeyPress);
+            this.ProofComboBx.Validating += new System.ComponentModel.CancelEventHandler(this.ComboBx_Validating);
+            this.ProofComboBx.Validated += new System.EventHandler(this.ComboBx_Validated);
             // 
             // label13
             // 
@@ -194,27 +195,36 @@
             this.DateReceivedPicker.Name = "DateReceivedPicker";
             this.DateReceivedPicker.Value = new System.DateTime(2018, 2, 5, 1, 42, 24, 0);
             // 
-            // groupBox2
+            // AddBtn
             // 
-            this.groupBox2.Controls.Add(this.ZipCodeTxtBx);
-            this.groupBox2.Controls.Add(this.textBox10);
-            this.groupBox2.Controls.Add(this.StateTxtBx);
-            this.groupBox2.Controls.Add(this.CityTxtBx);
-            this.groupBox2.Controls.Add(this.Address2TxtBx);
-            this.groupBox2.Controls.Add(this.label9);
-            this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.Address1TxtBx);
-            this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.label4);
-            resources.ApplyResources(this.groupBox2, "groupBox2");
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.TabStop = false;
+            resources.ApplyResources(this.AddBtn, "AddBtn");
+            this.AddBtn.Name = "AddBtn";
+            this.AddBtn.UseVisualStyleBackColor = true;
+            this.AddBtn.Click += new System.EventHandler(this.AddBtn_Click);
+            // 
+            // addrGrp
+            // 
+            this.addrGrp.Controls.Add(this.ZipCodeTxtBx);
+            this.addrGrp.Controls.Add(this.textBox10);
+            this.addrGrp.Controls.Add(this.StateTxtBx);
+            this.addrGrp.Controls.Add(this.CityTxtBx);
+            this.addrGrp.Controls.Add(this.Address2TxtBx);
+            this.addrGrp.Controls.Add(this.label9);
+            this.addrGrp.Controls.Add(this.label8);
+            this.addrGrp.Controls.Add(this.Address1TxtBx);
+            this.addrGrp.Controls.Add(this.label6);
+            this.addrGrp.Controls.Add(this.label5);
+            this.addrGrp.Controls.Add(this.label4);
+            resources.ApplyResources(this.addrGrp, "addrGrp");
+            this.addrGrp.Name = "addrGrp";
+            this.addrGrp.TabStop = false;
             // 
             // ZipCodeTxtBx
             // 
             resources.ApplyResources(this.ZipCodeTxtBx, "ZipCodeTxtBx");
             this.ZipCodeTxtBx.Name = "ZipCodeTxtBx";
+            this.ZipCodeTxtBx.Validating += new System.ComponentModel.CancelEventHandler(this.TxtBx_Validating);
+            this.ZipCodeTxtBx.Validated += new System.EventHandler(this.TxtBx_Validated);
             // 
             // textBox10
             // 
@@ -225,16 +235,22 @@
             // 
             resources.ApplyResources(this.StateTxtBx, "StateTxtBx");
             this.StateTxtBx.Name = "StateTxtBx";
+            this.StateTxtBx.Validating += new System.ComponentModel.CancelEventHandler(this.TxtBx_Validating);
+            this.StateTxtBx.Validated += new System.EventHandler(this.TxtBx_Validated);
             // 
             // CityTxtBx
             // 
             resources.ApplyResources(this.CityTxtBx, "CityTxtBx");
             this.CityTxtBx.Name = "CityTxtBx";
+            this.CityTxtBx.Validating += new System.ComponentModel.CancelEventHandler(this.TxtBx_Validating);
+            this.CityTxtBx.Validated += new System.EventHandler(this.TxtBx_Validated);
             // 
             // Address2TxtBx
             // 
             resources.ApplyResources(this.Address2TxtBx, "Address2TxtBx");
             this.Address2TxtBx.Name = "Address2TxtBx";
+            this.Address2TxtBx.Validating += new System.ComponentModel.CancelEventHandler(this.TxtBx_Validating);
+            this.Address2TxtBx.Validated += new System.EventHandler(this.TxtBx_Validated);
             // 
             // label9
             // 
@@ -250,6 +266,8 @@
             // 
             resources.ApplyResources(this.Address1TxtBx, "Address1TxtBx");
             this.Address1TxtBx.Name = "Address1TxtBx";
+            this.Address1TxtBx.Validating += new System.ComponentModel.CancelEventHandler(this.TxtBx_Validating);
+            this.Address1TxtBx.Validated += new System.EventHandler(this.TxtBx_Validated);
             // 
             // label6
             // 
@@ -266,23 +284,23 @@
             resources.ApplyResources(this.label4, "label4");
             this.label4.Name = "label4";
             // 
-            // groupBox1
+            // detailsGrp
             // 
-            this.groupBox1.Controls.Add(this.GenderComboBx);
-            this.groupBox1.Controls.Add(this.EMailTxtBx);
-            this.groupBox1.Controls.Add(this.PhoneNumberTxtBx);
-            this.groupBox1.Controls.Add(this.FirstNameTxtBx);
-            this.groupBox1.Controls.Add(this.LastNameTxtBx);
-            this.groupBox1.Controls.Add(this.InitialTxtBx);
-            this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label11);
-            this.groupBox1.Controls.Add(this.label10);
-            this.groupBox1.Controls.Add(this.label1);
-            resources.ApplyResources(this.groupBox1, "groupBox1");
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.TabStop = false;
+            this.detailsGrp.Controls.Add(this.GenderComboBx);
+            this.detailsGrp.Controls.Add(this.EMailTxtBx);
+            this.detailsGrp.Controls.Add(this.PhoneNumberTxtBx);
+            this.detailsGrp.Controls.Add(this.FirstNameTxtBx);
+            this.detailsGrp.Controls.Add(this.LastNameTxtBx);
+            this.detailsGrp.Controls.Add(this.InitialTxtBx);
+            this.detailsGrp.Controls.Add(this.label7);
+            this.detailsGrp.Controls.Add(this.label3);
+            this.detailsGrp.Controls.Add(this.label2);
+            this.detailsGrp.Controls.Add(this.label11);
+            this.detailsGrp.Controls.Add(this.label10);
+            this.detailsGrp.Controls.Add(this.label1);
+            resources.ApplyResources(this.detailsGrp, "detailsGrp");
+            this.detailsGrp.Name = "detailsGrp";
+            this.detailsGrp.TabStop = false;
             // 
             // GenderComboBx
             // 
@@ -292,26 +310,38 @@
             resources.GetString("GenderComboBx.Items1")});
             resources.ApplyResources(this.GenderComboBx, "GenderComboBx");
             this.GenderComboBx.Name = "GenderComboBx";
+            this.GenderComboBx.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.GenderComboBx_KeyPress);
+            this.GenderComboBx.Validating += new System.ComponentModel.CancelEventHandler(this.ComboBx_Validating);
+            this.GenderComboBx.Validated += new System.EventHandler(this.ComboBx_Validated);
             // 
             // EMailTxtBx
             // 
             resources.ApplyResources(this.EMailTxtBx, "EMailTxtBx");
             this.EMailTxtBx.Name = "EMailTxtBx";
+            this.EMailTxtBx.Validating += new System.ComponentModel.CancelEventHandler(this.TxtBx_Validating);
+            this.EMailTxtBx.Validated += new System.EventHandler(this.TxtBx_Validated);
             // 
             // PhoneNumberTxtBx
             // 
             resources.ApplyResources(this.PhoneNumberTxtBx, "PhoneNumberTxtBx");
             this.PhoneNumberTxtBx.Name = "PhoneNumberTxtBx";
+            this.PhoneNumberTxtBx.Validating += new System.ComponentModel.CancelEventHandler(this.TxtBx_Validating);
+            this.PhoneNumberTxtBx.Validated += new System.EventHandler(this.TxtBx_Validated);
             // 
             // FirstNameTxtBx
             // 
             resources.ApplyResources(this.FirstNameTxtBx, "FirstNameTxtBx");
             this.FirstNameTxtBx.Name = "FirstNameTxtBx";
+            this.FirstNameTxtBx.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FirstNameTxtBx_KeyPress);
+            this.FirstNameTxtBx.Validating += new System.ComponentModel.CancelEventHandler(this.TxtBx_Validating);
+            this.FirstNameTxtBx.Validated += new System.EventHandler(this.TxtBx_Validated);
             // 
             // LastNameTxtBx
             // 
             resources.ApplyResources(this.LastNameTxtBx, "LastNameTxtBx");
             this.LastNameTxtBx.Name = "LastNameTxtBx";
+            this.LastNameTxtBx.Validating += new System.ComponentModel.CancelEventHandler(this.TxtBx_Validating);
+            this.LastNameTxtBx.Validated += new System.EventHandler(this.TxtBx_Validated);
             // 
             // InitialTxtBx
             // 
@@ -355,37 +385,46 @@
             this.toolStripStatusLabel1});
             resources.ApplyResources(this.StatusBar, "StatusBar");
             this.StatusBar.Name = "StatusBar";
+            this.StatusBar.SizingGrip = false;
             // 
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
             resources.ApplyResources(this.toolStripStatusLabel1, "toolStripStatusLabel1");
             // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this.splitContainer;
+            // 
             // Form1
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.splitContainer1);
+            this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
+            this.CausesValidation = false;
+            this.Controls.Add(this.splitContainer);
             this.Controls.Add(this.StatusBar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Tag = "form";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.splitContainer1.Panel1.ResumeLayout(false);
-            this.splitContainer1.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
-            this.splitContainer1.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FeildKeyPress);
+            this.splitContainer.Panel1.ResumeLayout(false);
+            this.splitContainer.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).EndInit();
+            this.splitContainer.ResumeLayout(false);
+            this.rebateDetailGrp.ResumeLayout(false);
+            this.rebateDetailGrp.PerformLayout();
+            this.addrGrp.ResumeLayout(false);
+            this.addrGrp.PerformLayout();
+            this.detailsGrp.ResumeLayout(false);
+            this.detailsGrp.PerformLayout();
             this.StatusBar.ResumeLayout(false);
             this.StatusBar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -394,9 +433,8 @@
         #endregion
 
         private System.Windows.Forms.StatusStrip StatusBar;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
-        private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.SplitContainer splitContainer;
+        private System.Windows.Forms.GroupBox addrGrp;
         private System.Windows.Forms.TextBox StateTxtBx;
         private System.Windows.Forms.TextBox CityTxtBx;
         private System.Windows.Forms.TextBox Address2TxtBx;
@@ -406,14 +444,14 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox detailsGrp;
         private System.Windows.Forms.TextBox FirstNameTxtBx;
         private System.Windows.Forms.TextBox LastNameTxtBx;
         private System.Windows.Forms.TextBox InitialTxtBx;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox rebateDetailGrp;
         private System.Windows.Forms.ComboBox ProofComboBx;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
@@ -426,15 +464,16 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox ZipCodeTxtBx;
         private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button ClearBtn;
-        private System.Windows.Forms.Button AddBtn;
         private System.Windows.Forms.Button ModifyBtn;
         private System.Windows.Forms.Button DeleteBtn;
-        private System.Windows.Forms.ListView ListData;
+        private System.Windows.Forms.ListView DataListView;
         private System.Windows.Forms.ColumnHeader colHeader1;
         private System.Windows.Forms.ColumnHeader colHeader2;
         private System.Windows.Forms.ColumnHeader colHeader3;
+        private System.Windows.Forms.ErrorProvider errorProvider;
+        private System.Windows.Forms.Button ClearBtn;
+        private System.Windows.Forms.Button AddBtn;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
     }
 }
 

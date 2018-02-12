@@ -14,9 +14,17 @@ namespace Asg2_hxg170230
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            try
+            {
+                Application.EnableVisualStyles();
+                Application.SetCompatibleTextRenderingDefault(false);
+                Application.Run(new Form1());
+            }
+            catch (Exception e)
+            {
+                // log all the exception on the program.
+                Logger.log(e);
+            }
         }
     }
 }

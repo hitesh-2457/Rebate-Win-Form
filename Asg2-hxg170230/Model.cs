@@ -7,16 +7,11 @@ using System.Threading.Tasks;
 
 namespace Asg2_hxg170230
 {
+    /// <summary>
+    /// Model class, the form object
+    /// </summary>
     public class Model
     {
-
-        private String setStrLength(String value, int length)
-        {
-            if (value.Length > length)
-                return value.Substring(0, length);
-            else
-                return value;
-        }
 
         private String firstName;
 
@@ -147,10 +142,31 @@ namespace Asg2_hxg170230
             set { noBackSpace = value; }
         }
 
+        /// <summary>
+        /// Sets the length of the string.
+        /// </summary>
+        /// <param name="value">The string to be trimmed down.</param>
+        /// <param name="length">The length of sub string.</param>
+        /// <returns>
+        /// Returns sub string of the input string trimmed down to required length.
+        /// </returns>
+        private String setStrLength(String value, int length)
+        {
+            if (value.Length > length)
+                return value.Substring(0, length);
+            else
+                return value;
+        }
+
         public Model()
         {
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Model"/> class.
+        /// Constructor to bind string array to the object.
+        /// </summary>
+        /// <param name="data">The data, array of Strings.</param>
         public Model(String[] data)
         {
             FirstName = data[0] ?? "";
@@ -183,6 +199,12 @@ namespace Asg2_hxg170230
             NoBackSpace = val;
         }
 
+        /// <summary>
+        /// Returns a string that represents the current object with "Tabs" as seperators.
+        /// </summary>
+        /// <returns>
+        /// A tab seperated string that represents the current object.
+        /// </returns>
         override
         public String ToString()
         {

@@ -8,10 +8,18 @@ using System.Threading.Tasks;
 
 namespace Asg2_hxg170230
 {
+    /// <summary>
+    /// Logger class
+    /// </summary>
     public class Logger
     {
+        /// <summary>
+        /// Logs the specified ex.
+        /// </summary>
+        /// <param name="ex">The ex.</param>
         public static void log(Exception ex)
         {
+            // fetches the file name from the config file.
             var fileName = ConfigurationSettings.AppSettings.Get("LogFile");
             var fileStream = new FileStream(fileName, FileMode.OpenOrCreate, FileAccess.Write);
             List<Model> list = new List<Model>();
@@ -21,7 +29,6 @@ namespace Asg2_hxg170230
                 log.Append(ex.ToString());
                 streamWriter.WriteLineAsync(log.ToString());
             }
-
         }
     }
 }

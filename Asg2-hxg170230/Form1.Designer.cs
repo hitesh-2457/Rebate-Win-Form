@@ -40,22 +40,21 @@
             this.ClearBtn = new System.Windows.Forms.Button();
             this.rebateDetailGrp = new System.Windows.Forms.GroupBox();
             this.ProofComboBx = new System.Windows.Forms.ComboBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
+            this.ProofLabel = new System.Windows.Forms.Label();
+            this.DateReceivedLabel = new System.Windows.Forms.Label();
             this.DateReceivedPicker = new System.Windows.Forms.DateTimePicker();
             this.AddBtn = new System.Windows.Forms.Button();
             this.addrGrp = new System.Windows.Forms.GroupBox();
-            this.ZipCodeTxtBx = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.ZipCodeTxtBx = new System.Windows.Forms.MaskedTextBox();
             this.StateTxtBx = new System.Windows.Forms.TextBox();
             this.CityTxtBx = new System.Windows.Forms.TextBox();
             this.Address2TxtBx = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
+            this.CityLabel = new System.Windows.Forms.Label();
+            this.StateLabel = new System.Windows.Forms.Label();
             this.Address1TxtBx = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.ZipCodeLabel = new System.Windows.Forms.Label();
+            this.Addr2Label = new System.Windows.Forms.Label();
+            this.Addr1Label = new System.Windows.Forms.Label();
             this.detailsGrp = new System.Windows.Forms.GroupBox();
             this.GenderComboBx = new System.Windows.Forms.ComboBox();
             this.EMailTxtBx = new System.Windows.Forms.TextBox();
@@ -63,12 +62,12 @@
             this.FirstNameTxtBx = new System.Windows.Forms.TextBox();
             this.LastNameTxtBx = new System.Windows.Forms.TextBox();
             this.InitialTxtBx = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.GenderLabel = new System.Windows.Forms.Label();
+            this.InitialLabel = new System.Windows.Forms.Label();
+            this.LastNameLabel = new System.Windows.Forms.Label();
+            this.EmailAddressLabel = new System.Windows.Forms.Label();
+            this.PhoneNumberLabel = new System.Windows.Forms.Label();
+            this.FirstNameLabel = new System.Windows.Forms.Label();
             this.StatusBar = new System.Windows.Forms.StatusStrip();
             this.statusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
@@ -127,6 +126,7 @@
             this.colHeader2,
             this.colHeader3});
             this.DataListView.FullRowSelect = true;
+            this.DataListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             resources.ApplyResources(this.DataListView, "DataListView");
             this.DataListView.MultiSelect = false;
             this.DataListView.Name = "DataListView";
@@ -157,8 +157,8 @@
             // rebateDetailGrp
             // 
             this.rebateDetailGrp.Controls.Add(this.ProofComboBx);
-            this.rebateDetailGrp.Controls.Add(this.label13);
-            this.rebateDetailGrp.Controls.Add(this.label12);
+            this.rebateDetailGrp.Controls.Add(this.ProofLabel);
+            this.rebateDetailGrp.Controls.Add(this.DateReceivedLabel);
             this.rebateDetailGrp.Controls.Add(this.DateReceivedPicker);
             resources.ApplyResources(this.rebateDetailGrp, "rebateDetailGrp");
             this.rebateDetailGrp.Name = "rebateDetailGrp";
@@ -178,15 +178,15 @@
             this.ProofComboBx.Validating += new System.ComponentModel.CancelEventHandler(this.ComboBx_Validating);
             this.ProofComboBx.Validated += new System.EventHandler(this.ComboBx_Validated);
             // 
-            // label13
+            // ProofLabel
             // 
-            resources.ApplyResources(this.label13, "label13");
-            this.label13.Name = "label13";
+            resources.ApplyResources(this.ProofLabel, "ProofLabel");
+            this.ProofLabel.Name = "ProofLabel";
             // 
-            // label12
+            // DateReceivedLabel
             // 
-            resources.ApplyResources(this.label12, "label12");
-            this.label12.Name = "label12";
+            resources.ApplyResources(this.DateReceivedLabel, "DateReceivedLabel");
+            this.DateReceivedLabel.Name = "DateReceivedLabel";
             // 
             // DateReceivedPicker
             // 
@@ -194,6 +194,7 @@
             resources.ApplyResources(this.DateReceivedPicker, "DateReceivedPicker");
             this.DateReceivedPicker.Name = "DateReceivedPicker";
             this.DateReceivedPicker.Value = new System.DateTime(2018, 2, 5, 1, 42, 24, 0);
+            this.DateReceivedPicker.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckBackspaces);
             // 
             // AddBtn
             // 
@@ -205,16 +206,15 @@
             // addrGrp
             // 
             this.addrGrp.Controls.Add(this.ZipCodeTxtBx);
-            this.addrGrp.Controls.Add(this.textBox10);
             this.addrGrp.Controls.Add(this.StateTxtBx);
             this.addrGrp.Controls.Add(this.CityTxtBx);
             this.addrGrp.Controls.Add(this.Address2TxtBx);
-            this.addrGrp.Controls.Add(this.label9);
-            this.addrGrp.Controls.Add(this.label8);
+            this.addrGrp.Controls.Add(this.CityLabel);
+            this.addrGrp.Controls.Add(this.StateLabel);
             this.addrGrp.Controls.Add(this.Address1TxtBx);
-            this.addrGrp.Controls.Add(this.label6);
-            this.addrGrp.Controls.Add(this.label5);
-            this.addrGrp.Controls.Add(this.label4);
+            this.addrGrp.Controls.Add(this.ZipCodeLabel);
+            this.addrGrp.Controls.Add(this.Addr2Label);
+            this.addrGrp.Controls.Add(this.Addr1Label);
             resources.ApplyResources(this.addrGrp, "addrGrp");
             this.addrGrp.Name = "addrGrp";
             this.addrGrp.TabStop = false;
@@ -224,18 +224,15 @@
             resources.ApplyResources(this.ZipCodeTxtBx, "ZipCodeTxtBx");
             this.ZipCodeTxtBx.Name = "ZipCodeTxtBx";
             this.ZipCodeTxtBx.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckNumberKeyPress);
-            this.ZipCodeTxtBx.Validating += new System.ComponentModel.CancelEventHandler(this.TxtBx_Validating);
-            this.ZipCodeTxtBx.Validated += new System.EventHandler(this.TxtBx_Validated);
-            // 
-            // textBox10
-            // 
-            resources.ApplyResources(this.textBox10, "textBox10");
-            this.textBox10.Name = "textBox10";
+            this.ZipCodeTxtBx.Validating += new System.ComponentModel.CancelEventHandler(this.MskBx_Validating);
+            this.ZipCodeTxtBx.Validated += new System.EventHandler(this.MskBx_Validated);
             // 
             // StateTxtBx
             // 
+            this.StateTxtBx.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             resources.ApplyResources(this.StateTxtBx, "StateTxtBx");
             this.StateTxtBx.Name = "StateTxtBx";
+            this.StateTxtBx.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckCharKeyPress);
             this.StateTxtBx.Validating += new System.ComponentModel.CancelEventHandler(this.TxtBx_Validating);
             this.StateTxtBx.Validated += new System.EventHandler(this.TxtBx_Validated);
             // 
@@ -243,6 +240,7 @@
             // 
             resources.ApplyResources(this.CityTxtBx, "CityTxtBx");
             this.CityTxtBx.Name = "CityTxtBx";
+            this.CityTxtBx.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckCharKeyPress);
             this.CityTxtBx.Validating += new System.ComponentModel.CancelEventHandler(this.TxtBx_Validating);
             this.CityTxtBx.Validated += new System.EventHandler(this.TxtBx_Validated);
             // 
@@ -250,40 +248,42 @@
             // 
             resources.ApplyResources(this.Address2TxtBx, "Address2TxtBx");
             this.Address2TxtBx.Name = "Address2TxtBx";
+            this.Address2TxtBx.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckBackspaces);
             this.Address2TxtBx.Validating += new System.ComponentModel.CancelEventHandler(this.TxtBx_Validating);
             this.Address2TxtBx.Validated += new System.EventHandler(this.TxtBx_Validated);
             // 
-            // label9
+            // CityLabel
             // 
-            resources.ApplyResources(this.label9, "label9");
-            this.label9.Name = "label9";
+            resources.ApplyResources(this.CityLabel, "CityLabel");
+            this.CityLabel.Name = "CityLabel";
             // 
-            // label8
+            // StateLabel
             // 
-            resources.ApplyResources(this.label8, "label8");
-            this.label8.Name = "label8";
+            resources.ApplyResources(this.StateLabel, "StateLabel");
+            this.StateLabel.Name = "StateLabel";
             // 
             // Address1TxtBx
             // 
             resources.ApplyResources(this.Address1TxtBx, "Address1TxtBx");
             this.Address1TxtBx.Name = "Address1TxtBx";
+            this.Address1TxtBx.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckBackspaces);
             this.Address1TxtBx.Validating += new System.ComponentModel.CancelEventHandler(this.TxtBx_Validating);
             this.Address1TxtBx.Validated += new System.EventHandler(this.TxtBx_Validated);
             // 
-            // label6
+            // ZipCodeLabel
             // 
-            resources.ApplyResources(this.label6, "label6");
-            this.label6.Name = "label6";
+            resources.ApplyResources(this.ZipCodeLabel, "ZipCodeLabel");
+            this.ZipCodeLabel.Name = "ZipCodeLabel";
             // 
-            // label5
+            // Addr2Label
             // 
-            resources.ApplyResources(this.label5, "label5");
-            this.label5.Name = "label5";
+            resources.ApplyResources(this.Addr2Label, "Addr2Label");
+            this.Addr2Label.Name = "Addr2Label";
             // 
-            // label4
+            // Addr1Label
             // 
-            resources.ApplyResources(this.label4, "label4");
-            this.label4.Name = "label4";
+            resources.ApplyResources(this.Addr1Label, "Addr1Label");
+            this.Addr1Label.Name = "Addr1Label";
             // 
             // detailsGrp
             // 
@@ -293,12 +293,12 @@
             this.detailsGrp.Controls.Add(this.FirstNameTxtBx);
             this.detailsGrp.Controls.Add(this.LastNameTxtBx);
             this.detailsGrp.Controls.Add(this.InitialTxtBx);
-            this.detailsGrp.Controls.Add(this.label7);
-            this.detailsGrp.Controls.Add(this.label3);
-            this.detailsGrp.Controls.Add(this.label2);
-            this.detailsGrp.Controls.Add(this.label11);
-            this.detailsGrp.Controls.Add(this.label10);
-            this.detailsGrp.Controls.Add(this.label1);
+            this.detailsGrp.Controls.Add(this.GenderLabel);
+            this.detailsGrp.Controls.Add(this.InitialLabel);
+            this.detailsGrp.Controls.Add(this.LastNameLabel);
+            this.detailsGrp.Controls.Add(this.EmailAddressLabel);
+            this.detailsGrp.Controls.Add(this.PhoneNumberLabel);
+            this.detailsGrp.Controls.Add(this.FirstNameLabel);
             resources.ApplyResources(this.detailsGrp, "detailsGrp");
             this.detailsGrp.Name = "detailsGrp";
             this.detailsGrp.TabStop = false;
@@ -319,7 +319,8 @@
             // 
             resources.ApplyResources(this.EMailTxtBx, "EMailTxtBx");
             this.EMailTxtBx.Name = "EMailTxtBx";
-            this.EMailTxtBx.Validating += new System.ComponentModel.CancelEventHandler(this.TxtBx_Validating);
+            this.EMailTxtBx.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckBackspaces);
+            this.EMailTxtBx.Validating += new System.ComponentModel.CancelEventHandler(this.EMailTxtBx_Validating);
             this.EMailTxtBx.Validated += new System.EventHandler(this.TxtBx_Validated);
             // 
             // PhoneNumberTxtBx
@@ -342,6 +343,7 @@
             // 
             resources.ApplyResources(this.LastNameTxtBx, "LastNameTxtBx");
             this.LastNameTxtBx.Name = "LastNameTxtBx";
+            this.LastNameTxtBx.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckBackspaces);
             this.LastNameTxtBx.Validating += new System.ComponentModel.CancelEventHandler(this.TxtBx_Validating);
             this.LastNameTxtBx.Validated += new System.EventHandler(this.TxtBx_Validated);
             // 
@@ -349,36 +351,37 @@
             // 
             resources.ApplyResources(this.InitialTxtBx, "InitialTxtBx");
             this.InitialTxtBx.Name = "InitialTxtBx";
+            this.InitialTxtBx.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckBackspaces);
             // 
-            // label7
+            // GenderLabel
             // 
-            resources.ApplyResources(this.label7, "label7");
-            this.label7.Name = "label7";
+            resources.ApplyResources(this.GenderLabel, "GenderLabel");
+            this.GenderLabel.Name = "GenderLabel";
             // 
-            // label3
+            // InitialLabel
             // 
-            resources.ApplyResources(this.label3, "label3");
-            this.label3.Name = "label3";
+            resources.ApplyResources(this.InitialLabel, "InitialLabel");
+            this.InitialLabel.Name = "InitialLabel";
             // 
-            // label2
+            // LastNameLabel
             // 
-            resources.ApplyResources(this.label2, "label2");
-            this.label2.Name = "label2";
+            resources.ApplyResources(this.LastNameLabel, "LastNameLabel");
+            this.LastNameLabel.Name = "LastNameLabel";
             // 
-            // label11
+            // EmailAddressLabel
             // 
-            resources.ApplyResources(this.label11, "label11");
-            this.label11.Name = "label11";
+            resources.ApplyResources(this.EmailAddressLabel, "EmailAddressLabel");
+            this.EmailAddressLabel.Name = "EmailAddressLabel";
             // 
-            // label10
+            // PhoneNumberLabel
             // 
-            resources.ApplyResources(this.label10, "label10");
-            this.label10.Name = "label10";
+            resources.ApplyResources(this.PhoneNumberLabel, "PhoneNumberLabel");
+            this.PhoneNumberLabel.Name = "PhoneNumberLabel";
             // 
-            // label1
+            // FirstNameLabel
             // 
-            resources.ApplyResources(this.label1, "label1");
-            this.label1.Name = "label1";
+            resources.ApplyResources(this.FirstNameLabel, "FirstNameLabel");
+            this.FirstNameLabel.Name = "FirstNameLabel";
             // 
             // StatusBar
             // 
@@ -413,7 +416,6 @@
             this.Tag = "form";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FeildKeyPress);
             this.splitContainer.Panel1.ResumeLayout(false);
             this.splitContainer.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).EndInit();
@@ -440,32 +442,30 @@
         private System.Windows.Forms.TextBox StateTxtBx;
         private System.Windows.Forms.TextBox CityTxtBx;
         private System.Windows.Forms.TextBox Address2TxtBx;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label CityLabel;
+        private System.Windows.Forms.Label StateLabel;
         private System.Windows.Forms.TextBox Address1TxtBx;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label ZipCodeLabel;
+        private System.Windows.Forms.Label Addr2Label;
+        private System.Windows.Forms.Label Addr1Label;
         private System.Windows.Forms.GroupBox detailsGrp;
         private System.Windows.Forms.TextBox FirstNameTxtBx;
         private System.Windows.Forms.TextBox LastNameTxtBx;
         private System.Windows.Forms.TextBox InitialTxtBx;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label InitialLabel;
+        private System.Windows.Forms.Label LastNameLabel;
+        private System.Windows.Forms.Label FirstNameLabel;
         private System.Windows.Forms.GroupBox rebateDetailGrp;
         private System.Windows.Forms.ComboBox ProofComboBx;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label ProofLabel;
+        private System.Windows.Forms.Label DateReceivedLabel;
         private System.Windows.Forms.DateTimePicker DateReceivedPicker;
         private System.Windows.Forms.ComboBox GenderComboBx;
         private System.Windows.Forms.TextBox EMailTxtBx;
         private System.Windows.Forms.TextBox PhoneNumberTxtBx;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox ZipCodeTxtBx;
-        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.Label GenderLabel;
+        private System.Windows.Forms.Label EmailAddressLabel;
+        private System.Windows.Forms.Label PhoneNumberLabel;
         private System.Windows.Forms.Button ModifyBtn;
         private System.Windows.Forms.Button DeleteBtn;
         private System.Windows.Forms.ListView DataListView;
@@ -476,6 +476,7 @@
         private System.Windows.Forms.Button ClearBtn;
         private System.Windows.Forms.Button AddBtn;
         private System.Windows.Forms.ToolStripStatusLabel statusLabel;
+        private System.Windows.Forms.MaskedTextBox ZipCodeTxtBx;
     }
 }
 
